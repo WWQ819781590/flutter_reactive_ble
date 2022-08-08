@@ -28,6 +28,7 @@
 .pub-cache/
 .pub/
 build/
+Example/packages/
 .flutter-plugins-dependencies
 Flutter.podspec
 # Android related
