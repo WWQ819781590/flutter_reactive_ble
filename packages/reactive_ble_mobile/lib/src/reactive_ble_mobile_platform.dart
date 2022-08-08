@@ -228,6 +228,8 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
                 .writeToBuffer(),
           )
           .then((data) => _protobufConverter.discoveredServicesFrom(data!));
+  @override
+  Future<void> setBleState() => _bleMethodChannel.invokeMethod("setBleState");
 }
 
 class ReactiveBleMobilePlatformFactory {
@@ -256,4 +258,5 @@ class ReactiveBleMobilePlatformFactory {
           bleStatusChannel.receiveBroadcastStream().cast<List<int>>(),
     );
   }
+
 }

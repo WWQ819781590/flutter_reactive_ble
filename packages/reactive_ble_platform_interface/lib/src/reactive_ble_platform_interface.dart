@@ -181,4 +181,8 @@ abstract class ReactiveBlePlatform extends PlatformInterface {
     throw UnimplementedError(
         'requesConnectionPriority has not been implemented.');
   }
+
+  Future<void> setBleState() {
+    throw UnimplementedError('deInitialize() has not been implemented.');
+  }
 }

@@ -52,9 +52,13 @@ class _MyAppState extends State<MyApp> {
         });
       }
     });
-
-    _requestBlePermission();
-
+    _flutterReactiveBle.statusStream.listen((event) {
+      if(event == BleStatus.ready) {
+        _scanDevice();
+      }
+    });
+    // _requestBlePermission();
+    _flutterReactiveBle.setBleState();
   }
   @override
   void dispose(){
