@@ -27,11 +27,11 @@ dev_dependencies:
     sdk: flutter
   functional_data_generator: ^1.1.2
 
-dependency_overrides:
-  flutter_reactive_ble:
-    path: /Users/donwang/myproject/flutter_reactive_ble/packages/flutter_reactive_ble
-  reactive_ble_mobile:
-    path: /Users/donwang/myproject/flutter_reactive_ble/packages/reactive_ble_mobile
+#dependency_overrides:
+#  flutter_reactive_ble:
+#    path: /Users/donwang/myproject/flutter_reactive_ble/packages/flutter_reactive_ble
+#  reactive_ble_mobile:
+#    path: /Users/donwang/myproject/flutter_reactive_ble/packages/reactive_ble_mobile
 
 flutter:
   uses-material-design: true
