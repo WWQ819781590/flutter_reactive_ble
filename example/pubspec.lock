@@ -439,13 +439,11 @@ packages:
     source: path
     version: "5.0.2"
   reactive_ble_platform_interface:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      path: "packages/reactive_ble_platform_interface"
-      ref: HEAD
-      resolved-ref: "6bfda5160b081f28d124830f8a04ff6d25c44da9"
-      url: "https://github.com/WWQ819781590/flutter_reactive_ble.git"
-    source: git
+      path: "../packages/reactive_ble_platform_interface"
+      relative: true
+    source: path
     version: "5.0.2"
   shelf:
     dependency: transitive

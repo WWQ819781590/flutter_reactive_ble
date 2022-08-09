@@ -36,7 +36,8 @@ class PluginController {
             "stopNotifications" to this::stopNotifications,
             "negotiateMtuSize" to this::negotiateMtuSize,
             "requestConnectionPriority" to this::requestConnectionPriority,
-            "discoverServices" to this::discoverServices
+            "discoverServices" to this::discoverServices,
+            "setBleState" to this::setBleState
     )
 
     lateinit var bleClient: com.signify.hue.flutterreactiveble.ble.BleClient
@@ -70,7 +71,9 @@ class PluginController {
         charNotificationChannel.setStreamHandler(charNotificationHandler)
         bleStatusChannel.setStreamHandler(bleStatusHandler)
     }
-
+    private fun setBleState(call: MethodCall, result: Result) {
+        bleClient.setBleState()
+    }
     internal fun deinitialize() {
         scandevicesHandler.stopDeviceScan()
         deviceConnectionHandler.disconnectAll()

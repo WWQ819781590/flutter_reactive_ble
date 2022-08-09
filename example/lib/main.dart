@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       }
     });
     // _requestBlePermission();
-    _flutterReactiveBle.setBleState();
+
   }
   @override
   void dispose(){
@@ -164,6 +164,7 @@ class _MyAppState extends State<MyApp> {
               _topButton('配置ID', () {
                 _writeCommand(EncodeFactory.encodeData(ConfigDeviceRequest()));
               }),
+              _topButton('打开蓝牙', _flutterReactiveBle.setBleState),
             ],
           ),
           Expanded(child: ListView.builder(itemBuilder: (BuildContext context, int index)=> Container(

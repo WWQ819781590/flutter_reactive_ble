@@ -229,7 +229,7 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
           )
           .then((data) => _protobufConverter.discoveredServicesFrom(data!));
   @override
-  Future<void> setBleState() => _bleMethodChannel.invokeMethod("setBleState");
+  Future<void> setBleState() =>  _bleMethodChannel.invokeMethod("setBleState");
 }
 
 class ReactiveBleMobilePlatformFactory {

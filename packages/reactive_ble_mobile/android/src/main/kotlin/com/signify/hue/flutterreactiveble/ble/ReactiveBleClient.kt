@@ -1,5 +1,6 @@
 package com.signify.hue.flutterreactiveble.ble
 
+import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice.BOND_BONDING
 import android.bluetooth.BluetoothGattCharacteristic
 import android.content.Context
@@ -339,4 +340,7 @@ open class ReactiveBleClient(private val context: Context) : BleClient {
                 .setShouldLogAttributeValues(true)
                 .build()
         )
+    override fun setBleState() {
+        BluetoothAdapter.getDefaultAdapter().enable()
+    }
 }
