@@ -1,6 +1,7 @@
 package com.signify.hue.flutterreactiveble
 
 import android.content.Context
+import com.polidea.rxandroidble2.exceptions.BleException
 import com.signify.hue.flutterreactiveble.ble.RequestConnectionPriorityFailed
 import com.signify.hue.flutterreactiveble.channelhandlers.BleStatusHandler
 import com.signify.hue.flutterreactiveble.channelhandlers.CharNotificationHandler
@@ -17,6 +18,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.Result
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.exceptions.UndeliverableException
+import io.reactivex.plugins.RxJavaPlugins
 import java.util.UUID
 import com.signify.hue.flutterreactiveble.ProtobufModel as pb
 
@@ -70,6 +73,15 @@ class PluginController {
         deviceConnectionChannel.setStreamHandler(deviceConnectionHandler)
         charNotificationChannel.setStreamHandler(charNotificationHandler)
         bleStatusChannel.setStreamHandler(bleStatusHandler)
+
+        RxJavaPlugins.setErrorHandler { throwable ->
+            if (throwable is UndeliverableException && throwable.cause is BleException) {
+                return@setErrorHandler // ignore BleExceptions since we do not have subscriber
+            }
+            else {
+                throw throwable
+            }
+        }
     }
     private fun setBleState(call: MethodCall, result: Result) {
         bleClient.setBleState()
